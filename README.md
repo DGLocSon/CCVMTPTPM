@@ -1,15 +1,15 @@
 ### NHÓM 8
 
-### Đỗ Gia Lộc Sơn
+### Đỗ Gia Lộc Sơn - DGLocSon
 
-### Hồ Hoàng Tiến
+### Hồ Hoàng Tiến - LTNeit
 
-### Nguyễn Thông
+### Nguyễn Thông - karal202
 
-### Phan Tại Thái Phong
+### Phan Tại Thái Phong - PhongPhan233
 
-### Trần Bội Nghi
+### Trần Bội Nghi - BoiNghi
 
-### Võ Văn Minh
+### Võ Văn Minh - MinhG0810
 
-### Hà Minh Chánh
+### Hà Minh Chánh - minhchasnh290204
