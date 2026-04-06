@@ -1,0 +1,345 @@
+/* Thanh toán — xác nhận & thành công (theme tối) */
+:root {
+  --pay-bg-top: #000000;
+  --pay-bg-bottom: #1f0a0a;
+  --pay-card: #1f1f1f;
+  --pay-card-border: rgba(255, 255, 255, 0.06);
+  --pay-inner: #000000;
+  --pay-yellow: #f5c518;
+  --pay-yellow-dim: #d4a80e;
+  --pay-white: #ffffff;
+  --pay-muted: #9ca3af;
+  --pay-red: #e50914;
+  --pay-red-hover: #ff1a26;
+  --pay-green: #22c55e;
+  --pay-title-red: #e50914;
+  --pay-divider: #e50914;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.payment-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--pay-white);
+  background: linear-gradient(180deg, var(--pay-bg-top) 0%, var(--pay-bg-bottom) 100%);
+  background-attachment: fixed;
+}
+
+.payment-wrap {
+  min-height: 100vh;
+  padding: 40px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.payment-header {
+  text-align: center;
+  max-width: 560px;
+  margin-bottom: 28px;
+}
+
+.payment-title {
+  margin: 0 0 10px;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.payment-title--confirm {
+  color: var(--pay-title-red);
+}
+
+.payment-title--success {
+  color: var(--pay-green);
+}
+
+.payment-sub {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--pay-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+}
+
+.payment-sub--plain {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.payment-card {
+  width: 100%;
+  max-width: 520px;
+  background: var(--pay-card);
+  border-radius: 14px;
+  border: 1px solid var(--pay-card-border);
+  padding: 28px 24px 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.section-label {
+  margin: 0 0 16px;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pay-yellow);
+}
+
+.movie-block {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 420px) {
+  .movie-block {
+    grid-template-columns: 84px 1fr;
+    gap: 14px;
+  }
+}
+
+.movie-poster {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-meta h2 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--pay-white);
+}
+
+.movie-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.movie-tag {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--pay-yellow);
+  color: #1a1a1a;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 0.875rem;
+}
+
+.info-row dt {
+  margin: 0;
+  color: var(--pay-muted);
+  font-weight: 500;
+}
+
+.info-row dd {
+  margin: 0;
+  text-align: right;
+  color: var(--pay-white);
+  font-weight: 600;
+}
+
+.seat-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.seat-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--pay-red);
+  color: var(--pay-white);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.price-box {
+  background: var(--pay-inner);
+  border-radius: 12px;
+  padding: 18px 16px 16px;
+  margin-top: 4px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9375rem;
+  margin-bottom: 10px;
+}
+
+.price-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.price-row span:first-child {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.price-row span:last-child {
+  font-weight: 600;
+  color: var(--pay-white);
+}
+
+.price-divider {
+  height: 1px;
+  background: var(--pay-divider);
+  margin: 14px 0 12px;
+  opacity: 0.85;
+}
+
+.price-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.price-total span:first-child {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.price-total strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--pay-yellow);
+  letter-spacing: 0.02em;
+}
+
+.btn-pay {
+  display: block;
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--pay-red);
+  color: var(--pay-white);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 10px 30px rgba(229, 9, 20, 0.35);
+}
+
+.btn-pay:hover {
+  background: var(--pay-red-hover);
+}
+
+.btn-pay:active {
+  transform: scale(0.99);
+}
+
+/* —— Vé điện tử / QR —— */
+.ticket-head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.qr-frame {
+  max-width: 240px;
+  margin: 0 auto 22px;
+  padding: 16px;
+  background: var(--pay-white);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.qr-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ticket-movie-title {
+  margin: 0 0 18px;
+  text-align: center;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pay-white);
+}
+
+.payment-back {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.payment-back a {
+  color: var(--pay-muted);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.payment-back a:hover {
+  color: var(--pay-yellow);
+  text-decoration: underline;
+}
+
+.money-highlight {
+  color: var(--pay-yellow);
+  font-size: 1.125rem;
+  font-weight: 800;
+}

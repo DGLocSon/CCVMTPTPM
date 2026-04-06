@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xác nhận thanh toán — Đặt vé xem phim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/payment.css">
+</head>
+<body class="payment-body">
+  <div class="payment-wrap">
+    <header class="payment-header">
+      <h1 class="payment-title payment-title--confirm">Xác nhận thanh toán</h1>
+      <p class="payment-sub">Vui lòng kiểm tra thông tin đặt vé</p>
+    </header>
+
+    <article class="payment-card">
+      <h2 class="section-label">Thông tin phim</h2>
+
+      <div class="movie-block">
+        <div class="movie-poster">
+          <img src="https://picsum.photos/seed/matrixpost/200/300" width="200" height="300" alt="Poster The Matrix Resurrections">
+        </div>
+        <div class="movie-meta">
+          <h2>The Matrix Resurrections</h2>
+          <div class="movie-tags">
+            <span class="movie-tag">Hành động</span>
+            <span class="movie-tag">18</span>
+            <span class="movie-tag">Người</span>
+          </div>
+          <dl class="info-rows">
+            <div class="info-row">
+              <dt>Rạp chiếu</dt>
+              <dd>CGV Vincom Center</dd>
+            </div>
+            <div class="info-row">
+              <dt>Phòng chiếu</dt>
+              <dd>Rạp 2</dd>
+            </div>
+            <div class="info-row">
+              <dt>Suất chiếu</dt>
+              <dd>19:20 — T7, 23/01/2022</dd>
+            </div>
+            <div class="info-row">
+              <dt>Ghế ngồi</dt>
+              <dd>
+                <div class="seat-list">
+                  <span class="seat-pill">E7</span>
+                  <span class="seat-pill">E8</span>
+                </div>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="price-box">
+        <div class="price-row">
+          <span>Vé xem phim (x2)</span>
+          <span>190.000đ</span>
+        </div>
+        <div class="price-row">
+          <span>Bắp nước combo</span>
+          <span>85.000đ</span>
+        </div>
+        <div class="price-divider" aria-hidden="true"></div>
+        <div class="price-total">
+          <span>Tổng cộng</span>
+          <strong>275.000đ</strong>
+        </div>
+      </div>
+
+      <a class="btn-pay" href="/payment-success.html">Xác nhận thanh toán</a>
+    </article>
+
+    <p class="payment-back"><a href="/">← Về trang chủ</a></p>
+  </div>
+</body>
+</html>

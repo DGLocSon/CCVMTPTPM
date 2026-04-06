@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thanh toán thành công — Đặt vé xem phim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/payment.css">
+</head>
+<body class="payment-body">
+  <div class="payment-wrap">
+    <header class="payment-header">
+      <h1 class="payment-title payment-title--success">Thanh toán thành công</h1>
+      <p class="payment-sub payment-sub--plain">
+        Vé của bạn đã được đặt thành công. Vui lòng xuất trình mã QR hoặc mã đặt vé tại quầy để nhận vé.
+      </p>
+    </header>
+
+    <article class="payment-card">
+      <h2 class="section-label ticket-head">Vé điện tử</h2>
+
+      <div class="qr-frame">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&amp;data=BOOKING-MTX-E7E8-20220123" width="220" height="220" alt="Mã QR vé điện tử">
+      </div>
+
+      <h3 class="ticket-movie-title">The Matrix Resurrections</h3>
+
+      <dl class="info-rows">
+        <div class="info-row">
+          <dt>Rạp chiếu</dt>
+          <dd>CGV Vincom Center</dd>
+        </div>
+        <div class="info-row">
+          <dt>Phòng chiếu</dt>
+          <dd>Rạp 2</dd>
+        </div>
+        <div class="info-row">
+          <dt>Ghế ngồi</dt>
+          <dd>
+            <div class="seat-list">
+              <span class="seat-pill">E7</span>
+              <span class="seat-pill">E8</span>
+            </div>
+          </dd>
+        </div>
+        <div class="info-row">
+          <dt>Suất chiếu</dt>
+          <dd>19:20 — T7, 23/01/2022</dd>
+        </div>
+        <div class="info-row">
+          <dt>Tổng tiền</dt>
+          <dd><strong class="money-highlight">275.000đ</strong></dd>
+        </div>
+      </dl>
+
+      <a class="btn-pay" href="/">Trở về trang chủ</a>
+    </article>
+  </div>
+</body>
+</html>
