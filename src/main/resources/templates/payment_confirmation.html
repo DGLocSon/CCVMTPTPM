@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác Nhận Thanh Toán</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ff0000;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, #ff0000, #ffd700);
+            margin-bottom: 30px;
+        }
+
+        .content-box {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            color: #ffd700;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .movie-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .movie-poster {
+            width: 80px;
+            height: 120px;
+            background: linear-gradient(135deg, #333, #444);
+            border-radius: 4px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .movie-poster img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-info h3 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .movie-info p {
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-label {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .info-value {
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .seats-container {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .seat-badge {
+            background: #ff0000;
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .summary-section {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .summary-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-label {
+            color: #999;
+        }
+
+        .summary-value {
+            color: #fff;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .total-label {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .total-amount {
+            color: #ffd700;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #ff0000;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .content-box {
+                padding: 18px;
+            }
+
+            .movie-info h3 {
+                font-size: 14px;
+            }
+
+            .btn {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Xác Nhận Thanh Toán</h1>
+            <p>Với lòng kiên trí thường tin đặt vé</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="content-box">
+            <div class="section-title">Thông tin phim</div>
+
+            <div class="movie-section">
+                <div class="movie-poster">
+                    <img th:src="@{/images/matrix-poster.jpg}" alt="Movie Poster" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='120'%3E%3Crect fill='%23444' width='80' height='120'/%3E%3C/svg%3E">
+                </div>
+                <div class="movie-info">
+                    <h3>The Matrix<br>Resurrections</h3>
+                    <p>Hành động, Viễn tưởng</p>
+                    <p style="margin-top: 6px; color: #ff9999;">
+                        Rạp 3 | Lúc 16:30
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Rạp chiếu</span>
+                <span class="info-value">CDU Vincom Center</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Phòng chiếu</span>
+                <span class="info-value">Rạp 3</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Suất chiếu</span>
+                <span class="info-value">16:30 - T7, 25/05/2025</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Ghế ngồi</span>
+                <div class="seats-container">
+                    <span class="seat-badge">D7</span>
+                    <span class="seat-badge">E1</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <div class="summary-row">
+                <span class="summary-label">Vé em phim (x2)</span>
+                <span class="summary-value">180.000đ</span>
+            </div>
+            <div class="summary-row">
+                <span class="summary-label">Bộp nước combo</span>
+                <span class="summary-value">95.000đ</span>
+            </div>
+            <div class="total-row">
+                <span class="total-label">TỔNG CỘNG</span>
+                <span class="total-amount">275.000đ</span>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <button class="btn btn-secondary" onclick="history.back()">
+                ← Quay lại
+            </button>
+            <button class="btn btn-primary" onclick="confirmPayment()">
+                Xác nhận thanh toán
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function confirmPayment() {
+            alert('Đang xử lý thanh toán...');
+            // Add your payment processing logic here
+        }
+    </script>
+</body>
+</html>
