@@ -1,214 +1,261 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Voucher</title>
+    <title>Chi tiết Voucher Phim</title>
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #ffffff;
-            color: #111;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
         }
 
-        /* Navbar Styles */
         .navbar {
+            background-color: #e8e8e8;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #e2e2e2;
-            padding: 15px 30px;
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .navbar-left {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .brand {
-            color: #d93d3d;
-            text-transform: uppercase;
-            font-size: 18px;
-            text-align: center;
-            line-height: 1.1;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #222;
-        }
-
-        .navbar-right {
-            display: flex;
-            gap: 25px;
-        }
-        
-        .navbar-right a {
-            text-decoration: none;
-            color: #222;
-        }
-
-        /* Main Container */
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-        }
-
-        .main-card {
-            background-color: #e2e2e2;
-            padding: 40px;
-            min-height: 500px;
-        }
-
-        .page-title {
-            font-size: 22px;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-
-        /* Top detail section */
-        .detail-top {
-            display: flex;
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        /* Ticket Design (Copied from vouchers.html) */
-        .ticket {
-            display: flex;
-            width: 320px;
-            height: 150px;
-            border: 1px solid #777;
-            background-color: #fff;
-            flex-shrink: 0;
-        }
-
-        .ticket-icon {
-            width: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-right: 1px solid #777;
-            background-color: #fff;
-        }
-        
-        .new-year-text {
-            font-size: 22px;
-            text-align: center;
-            line-height: 1.2;
+            border-bottom: 1px solid #ddd;
+            font-size: 13px;
             font-weight: bold;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-item {
+            cursor: pointer;
             color: #333;
         }
 
-        .ticket-red .ticket-body { 
-            background-color: #db3f3e; 
-            border-left: 1px solid #777; 
-            flex-grow: 1;
+        .nav-item.active {
+            color: #d32f2f;
         }
 
-        /* Info Section */
-        .info-section {
-            flex-grow: 1;
+        .nav-right {
+            display: flex;
+            gap: 20px;
+            color: #666;
+            text-decoration: none;
         }
 
-        .voucher-name {
-            font-size: 18px;
-            font-weight: 700;
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #e8e8e8;
+            padding: 15px 20px;
+            border-bottom: 2px solid #d32f2f;
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .voucher-image {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            border-radius: 8px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 22px;
+            text-align: center;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .voucher-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .voucher-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .voucher-title {
+            flex: 1;
+        }
+
+        .voucher-title h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
             margin-bottom: 5px;
         }
 
-        .voucher-desc {
-            font-size: 15px;
-            margin-bottom: 15px;
+        .voucher-title p {
+            font-size: 13px;
+            color: #999;
         }
 
-        .divider-horizontal {
-            height: 1px;
-            background-color: #777;
-            margin-bottom: 20px;
-            width: 100%;
+        .voucher-code {
+            background: #f9f9f9;
+            padding: 8px 12px;
+            border: 1px dashed #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            text-align: center;
+            min-width: 140px;
         }
 
-        .detail-grid {
+        .price-info {
             display: grid;
-            grid-template-columns: 140px 1fr;
-            gap: 10px;
-            font-size: 14px;
-            margin-bottom: 30px;
-            line-height: 1.5;
-        }
-
-        .label {
-            font-weight: 700;
-        }
-
-        .action-buttons {
-            display: flex;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .price-value {
+            color: #d32f2f;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .description {
+            line-height: 1.6;
+            color: #555;
+            font-size: 13px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .description h3 {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .description li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .description li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #d32f2f;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
             margin-top: 20px;
         }
 
         .btn {
-            padding: 10px 25px;
-            border: 1px solid #333;
-            border-radius: 5px;
-            font-weight: 700;
-            font-size: 13px;
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
         }
 
         .btn-back {
-            background-color: #3b3b3b;
-            color: #fff;
+            background-color: #666;
+            color: white;
         }
 
-        .btn-buy {
-            background-color: #ff3b3b;
-            color: #fff;
-            border-color: #cc2525;
+        .btn-back:hover {
+            background-color: #555;
         }
 
-        /* Bottom Section: Terms */
-        .terms-title {
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
+        .btn-confirm {
+            background-color: #d32f2f;
+            color: white;
         }
 
-        .terms-list {
-            list-style-type: disc;
-            padding-left: 20px;
-            font-size: 13px;
-            line-height: 1.6;
-            margin-top: 15px;
+        .btn-confirm:hover {
+            background-color: #b71c1c;
         }
-        
-        .terms-list li {
-            margin-bottom: 2px;
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-header {
+                flex-direction: column;
+            }
+
+            .price-info {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-left {
+                gap: 15px;
+                font-size: 12px;
+            }
         }
 
     </style>
 </head>
 <body>
 
+<<<<<<< Updated upstream:src/main/resources/templates/user/voucher_detail.html
     <!-- Header / Navbar -->
     <header class="navbar">
         <div class="navbar-left">
@@ -287,9 +334,94 @@
                 </ul>
             </div>
             
+=======
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="nav-left">
+            <span class="nav-item">RẠP CHIẾU</span>
+            <span class="nav-item">PHIM</span>
+            <span class="nav-item">RẠP</span>
+            <span class="nav-item active">VOUCHER</span>
+        </div>
+        <div class="nav-right">
+            <span>Thông tin cá nhân</span>
+            <span>Đăng xuất</span>
+>>>>>>> Stashed changes:src/main/resources/templates/voucher_detail.html
         </div>
     </div>
 
+    <!-- Main Container -->
+    <div class="container">
+        <div class="header">VOUCHER PHIM</div>
+
+        <div class="content">
+            <!-- Left: Voucher Image -->
+            <div class="voucher-image">
+                <img th:src="@{/images/voucher-phim-30.jpg}" alt="Voucher Phim 30" 
+                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Crect fill='%23ff5252' width='150' height='150'/%3E%3Ctext x='50%25' y='50%25' font-size='20' fill='white' text-anchor='middle' dominant-baseline='middle'%3EVoucher%3C/text%3E%3C/svg%3E">
+            </div>
+
+            <!-- Right: Voucher Details -->
+            <div class="voucher-details">
+                <div class="detail-header">
+                    <div class="voucher-title">
+                        <h2>Voucher 30</h2>
+                        <p>Có giá trị tối 30 ngày phim 30</p>
+                    </div>
+                    <div class="voucher-code">
+                        VOUCHER30
+                    </div>
+                </div>
+
+                <div class="price-info">
+                    <div class="price-row">
+                        <span class="price-label">Giá hiệu hành</span>
+                        <span class="price-value">300-000 HNK</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Giảm giá</span>
+                        <span class="price-value">0 đồng</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Cổ lợi</span>
+                        <span class="price-value">1 lần</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="price-label">Thời gian sử dụng</span>
+                        <span class="price-value">30 ngày</span>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <h3>ĐIỀU KIỆN VÀ ĐIỀU KHOẢN:</h3>
+                    <ul>
+                        <li>Chỉ được sử dụng được Voucher có mã code đó không được về email + Định nghĩa là khách chắc được + Chủng tộc</li>
+                        <li>Voucher chỉ được sử dụng 1 lần duy nhất cho một người hoặc một lần</li>
+                        <li>Được sử dụng dươi hình thức mua vé giảm theo điều từ voucher</li>
+                        <li>Voucher không được cấp quỹ không được hoàn tiền được hoàn tiền (đối với QR được được điều kiện hoặc Khất sử dụng tiền để về mua được chọn được)</li>
+                        <li>Các điều khoản này không được nsa được điều khoản chung của website dựng hoặc thay đổi mà không thông báo trước</li>
+                    </ul>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-back" onclick="history.back()">← Quay Lại</button>
+                    <button class="btn btn-confirm" onclick="confirmVoucher()">Vào Hoàn Thiện →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function confirmVoucher() {
+            alert('Tiếp tục với voucher này');
+            // Redirect to checkout or next step
+            // window.location.href = '/checkout';
+        }
+    </script>
 </body>
 </html>
 
+<<<<<<< Updated upstream:src/main/resources/templates/user/voucher_detail.html
+=======
+
+>>>>>>> Stashed changes:src/main/resources/templates/voucher_detail.html
