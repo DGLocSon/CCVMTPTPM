@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đặt vé xem phim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  <header class="top-header">
+    <div class="container header-wrap">
+      <div class="header-main">
+        <h1 class="site-title">Đặt vé xem phim</h1>
+        <div class="header-right">
+          <nav class="main-nav" aria-label="Menu chính">
+            <a href="#" class="nav-link is-active" aria-current="page">Đặt vé phim chiếu rạp</a>
+            <a href="#" class="nav-link">Rạp</a>
+            <a href="#" class="nav-link">Lịch chiếu phim</a>
+            <a href="/login.html" class="nav-link">Đăng nhập</a>
+            <a href="#" class="nav-link">Voucher</a>
+          </nav>
+          <form class="search-form" role="search" action="#" method="get">
+            <label class="visually-hidden" for="q">Tìm phim</label>
+            <input id="q" class="search-input" type="search" name="q" placeholder="Luật sư công ích" autocomplete="off">
+            <button type="submit" class="search-submit" aria-label="Tìm kiếm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.35-4.35"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      <div class="show-tabs" role="tablist" aria-label="Danh mục phim">
+        <button type="button" class="show-tab is-active" role="tab" aria-selected="true">Đang chiếu</button>
+        <span class="show-tab-sep" aria-hidden="true"></span>
+        <button type="button" class="show-tab" role="tab" aria-selected="false">Sắp chiếu</button>
+      </div>
+
+      <section class="panel panel--carousel" aria-labelledby="now-showing-heading">
+        <h2 id="now-showing-heading" class="visually-hidden">Phim đang chiếu</h2>
+        <div class="poster-row poster-row--sm">
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine1/120/180" width="120" height="180" alt="Poster phim 1"></a>
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine2/120/180" width="120" height="180" alt="Poster phim 2"></a>
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine3/120/180" width="120" height="180" alt="Poster phim 3"></a>
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine4/120/180" width="120" height="180" alt="Poster phim 4"></a>
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine5/120/180" width="120" height="180" alt="Poster phim 5"></a>
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine6/120/180" width="120" height="180" alt="Poster phim 6"></a>
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine7/120/180" width="120" height="180" alt="Poster phim 7"></a>
+          <a href="#" class="poster-thumb"><img src="https://picsum.photos/seed/cine8/120/180" width="120" height="180" alt="Poster phim 8"></a>
+        </div>
+      </section>
+
+      <section class="recommend-block" aria-labelledby="recommend-heading">
+        <span id="recommend-heading" class="badge-de-xuat">Đề xuất</span>
+        <div class="panel panel--featured">
+          <div class="poster-row poster-row--lg">
+            <a href="#" class="poster-card">
+              <img src="https://picsum.photos/seed/avatarwater/240/360" width="240" height="360" alt="Avatar: Dòng chảy của nước">
+              <span class="poster-caption">Avatar: Dòng chảy của nước</span>
+            </a>
+            <a href="#" class="poster-card">
+              <img src="https://picsum.photos/seed/5cm/240/360" width="240" height="360" alt="5 Centimet trên giây">
+              <span class="poster-caption">5 Centimet trên giây</span>
+            </a>
+            <a href="#" class="poster-card poster-card--imax">
+              <span class="poster-frame">
+                <img src="https://picsum.photos/seed/sharkmax/240/360" width="240" height="360" alt="Phim IMAX">
+                <span class="poster-imax" aria-hidden="true">IMAX</span>
+              </span>
+              <span class="poster-caption">Phim IMAX</span>
+            </a>
+            <a href="#" class="poster-card">
+              <img src="https://picsum.photos/seed/tomjerry/240/360" width="240" height="360" alt="Tom &amp; Jerry">
+              <span class="poster-caption">Tom &amp; Jerry</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
