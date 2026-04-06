@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thiên đường máu (T16) — Chi tiết phim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/movie-detail.css">
+</head>
+<body class="detail-body">
+  <header class="detail-header">
+    <div class="container detail-header-inner">
+      <a href="/" class="logo-rap">Rạp chiếu<br>phim</a>
+      <nav class="detail-nav-main" aria-label="Điều hướng chính">
+        <a href="/">Phim</a>
+        <a href="#">Rạp</a>
+        <a href="#">Voucher</a>
+      </nav>
+      <nav class="detail-nav-user" aria-label="Tài khoản">
+        <a href="#">Thông tin cá nhân</a>
+        <a href="#">Đăng xuất</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-main">
+    <div class="container">
+      <a class="back-home" href="/">← Về trang chủ</a>
+
+      <div class="detail-hero">
+        <div class="detail-poster">
+          <img src="https://picsum.photos/seed/thienduongmau/560/840" width="280" height="420" alt="Poster Thiên đường máu">
+        </div>
+        <div class="detail-info">
+          <h1 class="detail-title">Thiên đường máu (T16)</h1>
+          <ul class="meta-list">
+            <li><strong>Thể loại:</strong> Tình cảm, Hành động</li>
+            <li><strong>Thời gian:</strong> 113 phút</li>
+            <li><strong>Quốc gia:</strong> Việt Nam</li>
+            <li><strong>Phụ đề:</strong> VN</li>
+            <li><strong>Độ tuổi:</strong> Phim dành cho khán giả từ đủ 16 tuổi trở lên (16+)</li>
+          </ul>
+
+          <div class="desc-block">
+            <h2 class="desc-heading">Mô tả</h2>
+            <p class="desc-sub"><strong>Đạo diễn:</strong> Hoàng Tuấn Cường</p>
+            <p class="desc-sub"><strong>Diễn viên:</strong> Quang Tuấn, Hoài Lâm, Quách Ngọc Ngoan</p>
+            <p class="desc-sub"><strong>Khởi chiếu:</strong> Thứ Tư, 31/12/2025</p>
+            <h3 class="desc-plot-title">Nội dung phim</h3>
+            <p class="desc-plot">
+              Giữa ranh giới của tình yêu và hiểm nguy, những con người bị cuốn vào một vòng xoáy không lối thoát — nơi lý tưởng và thực tại đan xen, và mỗi lựa chọn đều có thể thay đổi số phận. Một hành trình đầy kịch tính, những pha hành động nghẹt thở và cảm xúc dâng trào, khắc họa chân dung những kẻ dấn thân tìm kiếm “thiên đường” trong bão táp.
+            </p>
+          </div>
+
+          <div class="detail-actions">
+            <a class="btn-trailer" href="#" role="button">
+              <span class="play-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </span>
+              Trailer
+            </a>
+            <a class="btn-book" href="#lich-chieu">Đặt ngay</a>
+          </div>
+        </div>
+      </div>
+
+      <section class="showtime-section" id="lich-chieu" aria-labelledby="showtime-heading">
+        <h2 id="showtime-heading" class="showtime-title">Lịch chiếu</h2>
+        <div class="date-cards" role="group" aria-label="Chọn ngày">
+          <button type="button" class="date-card is-selected" aria-pressed="true" data-date="2026-01-22">
+            <span class="date-card__day-num">22/01</span>
+            <span class="date-card__weekday">Thứ Năm</span>
+          </button>
+          <button type="button" class="date-card" aria-pressed="false" data-date="2026-01-23">
+            <span class="date-card__day-num">23/01</span>
+            <span class="date-card__weekday">Thứ Sáu</span>
+          </button>
+          <button type="button" class="date-card" aria-pressed="false" data-date="2026-01-24">
+            <span class="date-card__day-num">24/01</span>
+            <span class="date-card__weekday">Thứ Bảy</span>
+          </button>
+          <button type="button" class="date-card" aria-pressed="false" data-date="2026-01-25">
+            <span class="date-card__day-num">25/01</span>
+            <span class="date-card__weekday">Chủ Nhật</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var cards = document.querySelectorAll(".date-card");
+      cards.forEach(function (card) {
+        card.addEventListener("click", function () {
+          cards.forEach(function (c) {
+            c.classList.remove("is-selected");
+            c.setAttribute("aria-pressed", "false");
+          });
+          card.classList.add("is-selected");
+          card.setAttribute("aria-pressed", "true");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
