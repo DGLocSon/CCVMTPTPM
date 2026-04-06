@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+  <main class="admin-wrapper">
+    <h1 class="admin-greeting">🐣 XIN CHÀO ADMIN!</h1>
+
+    <section class="admin-layout">
+      <aside>
+        <h2 class="menu-title">MENU</h2>
+        <ul class="menu-list">
+          <li>PHIM</li>
+          <li>PHÒNG CHIẾU</li>
+          <li>DOANH THU</li>
+        </ul>
+      </aside>
+
+      <div class="search-panel">
+        <div class="search-row">
+          <div class="search-field">
+            <label for="keyword">Tìm kiếm theo từ khóa</label>
+            <input id="keyword" type="text" placeholder="nhập từ khóa">
+          </div>
+          <div class="search-field">
+            <label for="from-date">Từ ngày</label>
+            <input id="from-date" type="text" value="21 / 10 / 2025">
+          </div>
+          <div class="search-field">
+            <label for="to-date">Đến ngày</label>
+            <input id="to-date" type="text" value="21 / 1 / 2026">
+          </div>
+        </div>
+        <button class="search-btn" type="button">Tìm kiếm</button>
+      </div>
+    </section>
+
+    <section class="stats-bar">
+      <h3 class="stats-title">Thống kê truy cập</h3>
+      <div class="stat-list">
+        <article class="stat-item">
+          <span class="stat-icon">📶</span>
+          <div>
+            <span class="stat-number">2</span>
+            <span class="stat-label">Đang online</span>
+          </div>
+        </article>
+        <article class="stat-item">
+          <span class="stat-icon">📶</span>
+          <div>
+            <span class="stat-number">10</span>
+            <span class="stat-label">Trong ngày</span>
+          </div>
+        </article>
+        <article class="stat-item">
+          <span class="stat-icon">📶</span>
+          <div>
+            <span class="stat-number">100</span>
+            <span class="stat-label">Trong tuần</span>
+          </div>
+        </article>
+        <article class="stat-item">
+          <span class="stat-icon">📶</span>
+          <div>
+            <span class="stat-number">300</span>
+            <span class="stat-label">Trong tháng</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="admin-actions">
+      <div class="action-item">
+        <span class="action-icon icon-red">🌐</span>
+        <span>Cấu hình website</span>
+      </div>
+      <div class="action-item">
+        <span class="action-icon icon-red">👥</span>
+        <span>Mật khẩu</span>
+      </div>
+      <div class="action-item">
+        <span class="action-icon icon-green">🔑</span>
+        <span>Tài khoản</span>
+      </div>
+      <div class="action-item">
+        <span class="action-icon icon-red">📱</span>
+        <span>Liên hệ</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
