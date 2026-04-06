@@ -60,7 +60,8 @@ public class demo {
 
     static void removeTodo() {
         showTodos();
-        if (todoList.isEmpty()) return;
+        if (todoList.isEmpty())
+            return;
 
         System.out.print("Nhập số công việc cần xóa: ");
         int index = Integer.parseInt(scanner.nextLine()) - 1;
