@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Ghế - Đặt Vé</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">
+            RẠP CHIẾU<br>PHIM
+        </a>
+        <div class="nav-links">
+            <a href="#">PHIM</a>
+            <a href="index.html">RẠP</a>
+            <a href="#">VOUCHER</a>
+        </div>
+        <div class="nav-user">
+            <a href="#">Thông tin cá nhân</a>
+            <a href="#">Đăng xuất</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Ticket Counter -->
+        <div class="ticket-types">
+            <div class="ticket-type-card">
+                <div class="ticket-name">NGƯỜI LỚN</div>
+                <div class="ticket-kind" style="color: #e50914;">Đơn</div>
+                <div class="ticket-price">75.000 VND</div>
+                <div class="counter">
+                    <button class="minus">-</button>
+                    <span>0</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+
+            <div class="ticket-type-card">
+                <div class="ticket-name">HHSV</div>
+                <div class="ticket-kind" style="color: #e50914;">Đơn</div>
+                <div class="ticket-price">45.000 VND</div>
+                <div class="counter">
+                    <button class="minus">-</button>
+                    <span>0</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+
+            <div class="ticket-type-card">
+                <div class="ticket-name">NGƯỜI LỚN</div>
+                <div class="ticket-kind" style="color: #e50914;">Đôi</div>
+                <div class="ticket-price">185.000 VND</div>
+                <div class="counter">
+                    <button class="minus">-</button>
+                    <span>0</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+
+            <div class="ticket-type-card">
+                <div class="ticket-name">NGƯỜI LỚN</div>
+                <div class="ticket-kind" style="color: #e50914;">Đơn</div>
+                <div class="ticket-price">75.000 VND</div>
+                <div class="counter">
+                    <button class="minus">-</button>
+                    <span>0</span>
+                    <button class="plus">+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seat Selection Zone -->
+        <div class="screen-area">
+            <div class="screen-title">CHỌN GHẾ</div>
+            <div class="screen-curve"></div>
+        </div>
+
+        <div class="seat-map-container">
+            <!-- Legend on the left -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="seat-sample single"></div>
+                    <span>Ghế đơn</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-sample double" style="border-radius: 6px;"></div>
+                    <span>Ghế đôi</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-sample selected"></div>
+                    <span>Ghế chọn</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-sample booked"></div>
+                    <span>Ghế đã đặt</span>
+                </div>
+            </div>
+
+            <!-- Seat grid in the middle -->
+            <div class="seat-grid-wrapper">
+                <!-- Row A -->
+                <div class="seat-row">
+                    <div class="seat" data-label="A01">A01</div>
+                    <div class="seat" data-label="A02">A02</div>
+                    <div class="seat" data-label="A03">A03</div>
+                    <div class="seat booked" data-label="A04">A04</div>
+                    <div class="seat" data-label="A05">A05</div>
+                    <div class="seat" data-label="A06">A06</div>
+                    <div class="seat" data-label="A07">A07</div>
+                </div>
+                <!-- Row B -->
+                <div class="seat-row">
+                    <div class="seat" data-label="B01">B01</div>
+                    <div class="seat booked" data-label="B02">B02</div>
+                    <div class="seat selected" data-label="B03">B03</div>
+                    <div class="seat" data-label="B04">B04</div>
+                    <div class="seat booked" data-label="B05">B05</div>
+                    <div class="seat booked" data-label="B06">B06</div>
+                    <div class="seat" data-label="B07">B07</div>
+                </div>
+                <!-- Row C -->
+                <div class="seat-row">
+                    <div class="seat" data-label="C01">C01</div>
+                    <div class="seat" data-label="C02">C02</div>
+                    <div class="seat" data-label="C03">C03</div>
+                    <div class="seat" data-label="C04">C04</div>
+                    <div class="seat" data-label="C05">C05</div>
+                    <div class="seat" data-label="C06">C06</div>
+                    <div class="seat" data-label="C07">C07</div>
+                </div>
+                <!-- Row D (Double seats) -->
+                <div class="seat-row" style="margin-top: 15px;">
+                    <div class="seat seat-double booked" data-label="D01">D01</div>
+                    <div class="seat seat-double" data-label="D02">D02</div>
+                    <div class="seat seat-double" data-label="D03">D03</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Area -->
+        <div class="action-area">
+            <button class="btn-book">ĐẶT VÉ</button>
+        </div>
+    </div>
+
+    <!-- Simple JS for interaction -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Seat selection interaction
+            const seats = document.querySelectorAll('.seat:not(.booked)');
+            seats.forEach(seat => {
+                seat.addEventListener('click', () => {
+                    seat.classList.toggle('selected');
+                });
+            });
+
+            // Counter interaction
+            const plusBtns = document.querySelectorAll('.plus');
+            const minusBtns = document.querySelectorAll('.minus');
+
+            plusBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const span = e.target.previousElementSibling;
+                    let val = parseInt(span.innerText);
+                    span.innerText = val + 1;
+                });
+            });
+
+            minusBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const span = e.target.nextElementSibling;
+                    let val = parseInt(span.innerText);
+                    if (val > 0) span.innerText = val - 1;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
