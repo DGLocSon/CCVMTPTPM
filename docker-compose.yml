@@ -1,0 +1,13 @@
+services:
+  app:
+    container_name: ccvmtptpm-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dglocson/springboot-demo:v1
+    ports:
+      - "8080:8080"
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - SPRING_PROFILES_ACTIVE=default
+    restart: unless-stopped
