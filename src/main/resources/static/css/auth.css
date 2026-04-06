@@ -1,0 +1,340 @@
+/* Đăng nhập & Đăng ký — theo mockup */
+:root {
+  --login-teal: #1a6b6b;
+  --login-teal-deep: #145858;
+  --login-input-bg: rgba(255, 255, 255, 0.12);
+  --login-btn: #7c6cf5;
+  --login-btn-hover: #6b5cf0;
+  --login-link: #a5b4fc;
+  --page-canvas: #ffffff;
+  --register-card: #e8e8e8;
+  --register-field-bg: #ffffff;
+  --register-label: #5c5c5c;
+  --register-btn: #e53935;
+  --register-btn-hover: #c62828;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.auth-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background: var(--page-canvas);
+  color: #1a1a1a;
+}
+
+.auth-center {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+/* —— Login —— */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(165deg, var(--login-teal) 0%, var(--login-teal-deep) 100%);
+  border-radius: 16px;
+  padding: 40px 36px 36px;
+  box-shadow: 0 20px 50px rgba(20, 88, 88, 0.35);
+}
+
+.login-title {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.login-field {
+  margin-bottom: 18px;
+}
+
+.login-field label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--login-input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 4px 14px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.input-with-icon:focus-within {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.input-with-icon svg {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.input-with-icon input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font: inherit;
+  font-size: 0.9375rem;
+  color: #fff;
+}
+
+.input-with-icon input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.input-with-icon input:focus {
+  outline: none;
+}
+
+.login-forgot {
+  text-align: right;
+  margin: -8px 0 22px;
+}
+
+.login-forgot a {
+  font-size: 0.8125rem;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.95;
+}
+
+.login-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--login-btn);
+  color: #fff;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(124, 108, 245, 0.45);
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn-login:hover {
+  background: var(--login-btn-hover);
+}
+
+.btn-login:active {
+  transform: scale(0.99);
+}
+
+.login-footer {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.login-footer a {
+  color: var(--login-link);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+.auth-back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.875rem;
+}
+
+.auth-back a {
+  color: var(--login-teal);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-back a:hover {
+  text-decoration: underline;
+}
+
+/* —— Register —— */
+.register-card {
+  width: 100%;
+  max-width: 440px;
+  background: var(--register-card);
+  border-radius: 16px;
+  padding: 36px 32px 32px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+.register-title {
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.register-field {
+  margin-bottom: 16px;
+}
+
+.register-field label,
+.register-field-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--register-label);
+  margin-bottom: 6px;
+}
+
+.register-field input[type="text"],
+.register-field input[type="email"],
+.register-field input[type="tel"],
+.register-field input[type="password"],
+.register-field select {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 0.9375rem;
+  background: var(--register-field-bg);
+  color: #1a1a1a;
+}
+
+.register-field input:focus,
+.register-field select:focus {
+  outline: 2px solid rgba(124, 108, 245, 0.35);
+  outline-offset: 0;
+  border-color: transparent;
+}
+
+.register-field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.dob-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 10px;
+}
+
+.dob-row input {
+  text-align: center;
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 48px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #666;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.toggle-password:hover {
+  color: #222;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.register-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0 22px;
+  font-size: 0.875rem;
+  color: #444;
+}
+
+.register-terms input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--register-btn);
+}
+
+.btn-register {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--register-btn);
+  color: #fff;
+  font: inherit;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(229, 57, 53, 0.35);
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn-register:hover {
+  background: var(--register-btn-hover);
+}
+
+.btn-register:active {
+  transform: scale(0.99);
+}
+
+.register-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.register-footer a {
+  color: var(--login-btn);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}

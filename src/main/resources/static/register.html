@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký — Đặt vé xem phim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body class="auth-body">
+  <div class="auth-center">
+    <div>
+      <form class="register-card" action="#" method="post" autocomplete="on">
+        <h1 class="register-title">Đăng ký</h1>
+
+        <div class="register-field">
+          <label for="phone">Số điện thoại</label>
+          <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="Số điện thoại" required>
+        </div>
+
+        <div class="register-field">
+          <label for="fullname">Họ và tên</label>
+          <input id="fullname" name="fullname" type="text" placeholder="Nguyễn Văn A" required>
+        </div>
+
+        <div class="register-field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="example@gmail.com" required>
+        </div>
+
+        <div class="register-field">
+          <span class="register-field-label" id="dob-label">Ngày sinh</span>
+          <div class="dob-row" role="group" aria-labelledby="dob-label">
+            <input type="text" name="dob_day" inputmode="numeric" maxlength="2" placeholder="DD" aria-label="Ngày" pattern="[0-9]{1,2}" required>
+            <input type="text" name="dob_month" inputmode="numeric" maxlength="2" placeholder="MM" aria-label="Tháng" pattern="[0-9]{1,2}" required>
+            <input type="text" name="dob_year" inputmode="numeric" maxlength="4" placeholder="YYYY" aria-label="Năm" pattern="[0-9]{4}" required>
+          </div>
+        </div>
+
+        <div class="register-field">
+          <label for="region">Khu vực</label>
+          <select id="region" name="region" required>
+            <option value="" disabled selected hidden>Chọn khu vực</option>
+            <option value="hn">Hà Nội</option>
+            <option value="hcm">TP. Hồ Chí Minh</option>
+            <option value="dn">Đà Nẵng</option>
+            <option value="hp">Hải Phòng</option>
+            <option value="ct">Cần Thơ</option>
+            <option value="other">Khác</option>
+          </select>
+        </div>
+
+        <div class="register-field">
+          <label for="reg-password">Mật khẩu</label>
+          <div class="password-wrap">
+            <input id="reg-password" name="password" type="password" autocomplete="new-password" required placeholder="••••••••">
+            <button type="button" class="toggle-password" id="togglePwd" aria-label="Hiện mật khẩu" aria-pressed="false">
+              <svg class="icon-eye" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <label class="register-terms">
+          <input type="checkbox" name="terms" required>
+          <span>Tôi đồng ý với các điều khoản.</span>
+        </label>
+
+        <button type="submit" class="btn-register">Đăng ký</button>
+
+        <p class="register-footer">
+          Đã có tài khoản? <a href="/login.html">Đăng nhập</a>
+        </p>
+      </form>
+
+      <p class="auth-back"><a href="/">← Về trang chủ</a></p>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var input = document.getElementById("reg-password");
+      var btn = document.getElementById("togglePwd");
+      if (!input || !btn) return;
+      btn.addEventListener("click", function () {
+        var show = input.type === "password";
+        input.type = show ? "text" : "password";
+        btn.setAttribute("aria-label", show ? "Ẩn mật khẩu" : "Hiện mật khẩu");
+        btn.setAttribute("aria-pressed", show ? "true" : "false");
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập — Đặt vé xem phim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body class="auth-body">
+  <div class="auth-center">
+    <div>
+      <form class="login-card" action="#" method="post" autocomplete="on">
+        <h1 class="login-title">Đăng nhập</h1>
+
+        <div class="login-field">
+          <label for="username">Tên Đăng Nhập</label>
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <input id="username" name="username" type="text" autocomplete="username" required placeholder="Nhập tên đăng nhập">
+          </div>
+        </div>
+
+        <div class="login-field">
+          <label for="password">Mật Khẩu</label>
+          <div class="input-with-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="••••••••">
+          </div>
+        </div>
+
+        <p class="login-forgot">
+          <a href="#">Quên mật khẩu ?</a>
+        </p>
+
+        <button type="submit" class="btn-login">Đăng Nhập</button>
+
+        <p class="login-footer">
+          Chưa có tài khoản? <a href="/register.html">Đăng ký</a>
+        </p>
+      </form>
+
+      <p class="auth-back"><a href="/">← Về trang chủ</a></p>
+    </div>
+  </div>
+</body>
+</html>
