@@ -31,5 +31,4 @@ jobs:
         with:
           context: .
           push: true
-          # Tên image và tag của bạn
           tags: dglocson/springboot-demo:v1
