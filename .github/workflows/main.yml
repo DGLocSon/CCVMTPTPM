@@ -1,35 +1,35 @@
-name: Build and Push to Docker Hub
+name: CI/CD Pipeline - Docker Hub
 
-# Kích hoạt workflow khi có code mới đẩy lên nhánh 'main'
+# 1. Sự kiện kích hoạt: Workflow sẽ chạy khi bạn push code lên nhánh 'main'
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 
 jobs:
-  build-and-push:
+  build-and-push-docker-image:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Kéo source code về máy ảo của GitHub
+      # Bước 1: Kéo source code từ GitHub về máy chủ chạy workflow
       - name: Checkout Source Code
         uses: actions/checkout@v4
 
-      # 2. Setup công cụ build Docker
+      # Bước 2: Cài đặt công cụ Docker Buildx để build image nhanh và tối ưu hơn
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # 3. Đăng nhập vào Docker Hub bằng tài khoản của bạn
+      # Bước 3: Đăng nhập vào Docker Hub (Sử dụng biến bảo mật)
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # 4. Build từ Dockerfile và Push thẳng lên Docker Hub
-      - name: Build and Push Docker Image
+      # Bước 4: Khởi chạy build từ Dockerfile và push lên Hub
+      - name: Build and Push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          # Thay 'dglocson/springboot-demo:v1' bằng tag bạn muốn (có thể dùng 'latest')
+          # Tên image và tag của bạn
           tags: dglocson/springboot-demo:v1
