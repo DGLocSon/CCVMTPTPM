@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang chủ - Đặt vé xem phim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+  <main class="page">
+    <header class="top-header">
+      <div class="container top-header-inner">
+        <h1 class="site-title">Đặt vé xem phim</h1>
+        <div class="header-right">
+          <nav class="main-nav" aria-label="Menu chính">
+            <a href="#" class="nav-link is-active" aria-current="page">Đặt vé phim chiếu rạp</a>
+            <a href="#" class="nav-link">Rạp</a>
+            <a href="#" class="nav-link">Lịch chiếu phim</a>
+            <a href="/register.html" class="nav-link">Đăng nhập</a>
+            <a href="#" class="nav-link">Voucher</a>
+          </nav>
+          <form class="search-form" role="search" action="#" method="get">
+            <label class="visually-hidden" for="q">Tìm phim</label>
+            <input id="q" class="search-input" type="search" name="q" placeholder="Luật sư công ích" autocomplete="off">
+            <button type="submit" class="search-submit" aria-label="Tìm kiếm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <section class="container page-content">
+      <div class="show-tabs" role="tablist" aria-label="Danh mục phim hiện tại">
+        <button type="button" class="show-tab is-active" role="tab" aria-selected="true">Đang chiếu</button>
+        <span class="show-tab-sep" aria-hidden="true"></span>
+        <button type="button" class="show-tab" role="tab" aria-selected="false">Sắp chiếu</button>
+      </div>
+
+      <section class="panel panel--carousel" aria-labelledby="now-showing">
+        <h2 id="now-showing" class="visually-hidden">Danh sách phim đang chiếu</h2>
+        <div class="poster-row poster-row--sm">
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/33055928-1228-4957-955b-ce42a1bed14d" alt="Con Kế Bà Nghè"></a>
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/84d0ae6a-5d96-40e9-a85d-1c2dafb206a8" alt="Đồi Cấm Lãng"></a>
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/748394e5-4655-4c56-9b0a-e9afb93b004b" alt="Phim hoạt hình"></a>
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/17bde1ec-a503-4ee4-b65a-480651ad9ba3" alt="Anime"></a>
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/aa3ee766-585f-42c4-b678-3851854d3b8a" alt="Bản chứng sinh tử"></a>
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/aac8e4f6-bbfa-4242-8dca-12e26b9f1a59" alt="Nhị Trần Quỷ"></a>
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/df7639e4-13b8-44e2-815f-0e1881f2af6b" alt="Điện Biên Mạng"></a>
+          <a href="/movie-detail.html" class="poster-thumb"><img src="https://www.figma.com/api/mcp/asset/1294fdd6-7ca6-4329-b8ed-69822d6f50f7" alt="Linh Trừng"></a>
+        </div>
+      </section>
+
+      <section class="recommend-block" aria-labelledby="recommend-title">
+        <h2 id="recommend-title" class="badge-de-xuat">Đề xuất</h2>
+        <div class="panel panel--featured">
+          <div class="poster-row poster-row--lg">
+            <a href="/movie-detail.html" class="poster-card">
+              <img src="https://www.figma.com/api/mcp/asset/ff5132ec-b59b-4c82-aa5c-e38b521fb47b" alt="Avatar">
+              <span class="poster-caption">Avatar: Dòng chảy của nước</span>
+            </a>
+            <a href="/movie-detail.html" class="poster-card">
+              <img src="https://www.figma.com/api/mcp/asset/ad336e73-c927-45de-b790-71c21b7fc0d1" alt="5 Centimet trên giây">
+              <span class="poster-caption">5 Centimet trên giây</span>
+            </a>
+            <a href="/movie-detail.html" class="poster-card poster-card--imax">
+              <span class="poster-frame">
+                <img src="https://www.figma.com/api/mcp/asset/7eda3d4a-d0c6-4469-9f56-072ff8a57421" alt="Phim IMAX">
+                <span class="poster-imax" aria-hidden="true">IMAX</span>
+              </span>
+              <span class="poster-caption">Phim IMAX</span>
+            </a>
+            <a href="/movie-detail.html" class="poster-card">
+              <img src="https://www.figma.com/api/mcp/asset/04a7ed19-f79f-42c8-a485-66e83a58ef8b" alt="Tom &amp; Jerry">
+              <span class="poster-caption">Tom &amp; Jerry</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
