@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Voucher</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #111;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #e2e2e2;
+            padding: 15px 30px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .brand {
+            color: #d93d3d;
+            text-transform: uppercase;
+            font-size: 18px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        .navbar-right {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .navbar-right a {
+            text-decoration: none;
+            color: #222;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 22px;
+            margin: 30px 0 20px;
+            font-weight: 700;
+        }
+
+        .voucher-section {
+            background-color: #dfdfdf;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+
+        .voucher-grid {
+            display: grid;
+            grid-template-columns: 1fr 1px 1fr;
+            gap: 20px;
+            padding: 0 40px;
+        }
+        
+        .divider-vertical {
+            background-color: #666; /* The black line in the middle */
+            width: 1px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .voucher-column {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .voucher-item {
+            padding: 0 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .voucher-item:hover {
+            transform: scale(1.02);
+        }
+
+        .voucher-info {
+            margin-bottom: 12px;
+        }
+
+        .voucher-info h3 {
+            font-size: 15px;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .voucher-info p {
+            font-size: 14px;
+            margin-bottom: 3px;
+            font-weight: 700;
+        }
+
+        /* Ticket Design */
+        .ticket {
+            display: flex;
+            width: 320px;
+            height: 110px;
+            border: 1px solid #777;
+            background-color: #fff;
+        }
+
+        .ticket-icon {
+            width: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid #777;
+            font-size: 45px;
+            background-color: #fff;
+        }
+
+        .ticket-body {
+            flex-grow: 1;
+        }
+
+        /* Specific Ticket Colors */
+        .ticket-green .ticket-body { background-color: #22b13c; border-left: 1px solid #777; }
+        .ticket-pink .ticket-body { background-color: #e5b3c8; border-left: 1px solid #777; }
+        .ticket-red .ticket-body { background-color: #db3f3e; border-left: 1px solid #777; }
+        .ticket-blue .ticket-body { background-color: #6769ed; border-left: 1px solid #777; }
+        .ticket-lightcoral .ticket-body { background-color: #e89898; border-left: 1px solid #777; }
+        .ticket-yellow .ticket-body { background-color: #e3cc26; border-left: 1px solid #777; }
+        
+        .new-year-text {
+            font-size: 22px;
+            text-align: center;
+            line-height: 1.2;
+            font-weight: bold;
+            color: #333;
+            background: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="navbar-left">
+            <div class="brand">
+                RẠP CHIẾU<br>PHIM
+            </div>
+            <nav class="nav-links">
+                <a href="#">PHIM</a>
+                <a href="#">RẠP</a>
+                <a href="vouchers.html">VOUCHER</a>
+            </nav>
+        </div>
+        <div class="navbar-right">
+            <a href="#">Thông tin cá nhân</a>
+            <a href="#">Đăng xuất</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- VOUCHER CỦA BẠN -->
+        <h2 class="section-title">VOUCHER CỦA BẠN</h2>
+        <div class="voucher-section">
+            <div class="voucher-grid">
+                <!-- Col 1 -->
+                <div class="voucher-column">
+                    <div class="voucher-item" onclick="window.location.href='voucher_detail.html'">
+                        <div class="voucher-info">
+                            <h3>Voucher Giáng Sinh</h3>
+                            <p>Trị giá 300 000 VNĐ</p>
+                            <p>Có giá trị đổi vé xem phim 2D</p>
+                        </div>
+                        <div class="ticket ticket-green">
+                            <div class="ticket-icon">🎄</div>
+                            <div class="ticket-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider-vertical"></div>
+
+                <!-- Col 2 -->
+                <div class="voucher-column">
+                    <div class="voucher-item" onclick="window.location.href='voucher_detail.html'">
+                        <div class="voucher-info">
+                            <h3>Voucher Valentine</h3>
+                            <p>Trị giá 150 000 VNĐ</p>
+                            <p>Có giá trị đổi vé xem phim 2D</p>
+                        </div>
+                        <div class="ticket ticket-pink">
+                            <div class="ticket-icon">💖</div>
+                            <div class="ticket-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DANH SÁCH VOUCHER HIỆN TẠI -->
+        <h2 class="section-title">DANH SÁCH VOUCHER HIỆN TẠI</h2>
+        <div class="voucher-section">
+            <div class="voucher-grid">
+                <!-- Left Column -->
+                <div class="voucher-column">
+                    <!-- Item 1 -->
+                    <div class="voucher-item" onclick="window.location.href='voucher_detail.html'">
+                        <div class="voucher-info">
+                            <h3>Voucher 2D Năm Mới</h3>
+                            <p>Trị giá 200 000 VNĐ</p>
+                            <p>Có giá trị đổi vé xem phim 2D</p>
+                        </div>
+                        <div class="ticket ticket-red">
+                            <div class="ticket-icon new-year-text">
+                                🧧<br>HNY
+                            </div>
+                            <div class="ticket-body"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="voucher-item" onclick="window.location.href='voucher_detail.html'">
+                        <div class="voucher-info">
+                            <h3>Voucher 3D Năm Mới</h3>
+                            <p>Trị giá 400 000 VNĐ</p>
+                            <p>Có giá trị đổi vé xem phim 3D</p>
+                        </div>
+                        <div class="ticket ticket-lightcoral">
+                            <div class="ticket-icon new-year-text">
+                                🧧<br>HNY
+                            </div>
+                            <div class="ticket-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Divider -->
+                <div class="divider-vertical" style="height: 100%;"></div>
+
+                <!-- Right Column -->
+                <div class="voucher-column">
+                    <!-- Item 3 -->
+                    <div class="voucher-item" onclick="window.location.href='voucher_detail.html'">
+                        <div class="voucher-info">
+                            <h3>Voucher Sinh Nhật</h3>
+                            <p>Trị giá 250 000 VNĐ</p>
+                            <p>Có giá trị đổi vé xem phim 2D</p>
+                        </div>
+                        <div class="ticket ticket-blue">
+                            <div class="ticket-icon">🎁</div>
+                            <div class="ticket-body"></div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="voucher-item" onclick="window.location.href='voucher_detail.html'">
+                        <div class="voucher-info">
+                            <h3>Voucher Năm Mới</h3>
+                            <p>Trị giá 200 000 VNĐ</p>
+                            <p>Có giá trị đổi vé xem phim 2D</p>
+                        </div>
+                        <div class="ticket ticket-yellow">
+                            <div class="ticket-icon">🎁</div>
+                            <div class="ticket-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
